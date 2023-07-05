@@ -7,10 +7,16 @@ const CourseDetails = () => {
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
-    // Fetch course details from an API based on the courseId
-    axios.get(`api/courses/${courseId}`).then((response) => {
-      setCourse(response.data);
-    });
+    const fetchCourseDetails = async () => {
+      try {
+        const response = await axios.get(`api/courses/${courseId}`);
+        setCourse(response.data);
+      } catch (error) {
+        console.error('Error fetching course details:', error);
+      }
+    };
+
+    fetchCourseDetails();
   }, [courseId]);
 
   if (!course) {

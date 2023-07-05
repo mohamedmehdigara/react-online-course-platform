@@ -44,18 +44,6 @@ const Courses = () => {
     };
   }, [currentPage, isLoading]);
 
-  useEffect(() => {
-    // Fetch course data from an API
-    // ...
-
-    // For demonstration purposes, set dummy data
-    setCourses([
-      { id: 1, title: 'Course 1', instructor: 'Instructor 1', rating: 4.5 },
-      { id: 2, title: 'Course 2', instructor: 'Instructor 2', rating: 4.0 },
-      // Additional courses
-    ]);
-  }, []);
-
   const handleBookmark = (courseId) => {
     // Retrieve bookmarked courses from local storage
     const bookmarkedCourses = JSON.parse(localStorage.getItem('bookmarkedCourses')) || [];
